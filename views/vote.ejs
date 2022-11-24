@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    />
+    <title>Vote4Change</title>
+  </head>
+  <body>
+    <header class="header">
+      <nav>
+        <img src="assets/img/logo-2.png" alt="" srcset="" />
+      </nav>
+    </header>
+    <!-- Presidential -->
+    <section class="main__container">
+      <form action="/" method="post">
+        <div>Choose your candiate</div>
+        <div class="voting__label">President</div>
+        <div class="vote__container candidate__list">
+          <input
+            type="radio"
+            id="cand__id"
+            name="president"
+            value="1"
+            checked
+          />
+          <img src="assets/img/tinubu.png" alt="" srcset="" />
+          <div class="candidate__label--box">
+            <label for="name" class="candidate__name"
+              >AHMAD BOLA TINUBU <span class="countingvote"></span></label
+            >
+            <p class="candidate__position">APC Presidential candidate</p>
+          </div>
+        </div>
+        <div class="vote__container candidate__list">
+          <input type="radio" id="cand__id" name="president" value="2" />
+          <img src="assets/img/Atiku.png" alt="" srcset="" />
+          <div class="candidate__label--box">
+            <label for="name" class="candidate__name">ATIKU ABUBAKAR</label>
+            <p class="candidate__position">PDP Presidential candidate</p>
+          </div>
+        </div>
+        <div class="vote__container candidate__list">
+          <input type="radio" id="cand__id" name="president" value="3" />
+          <img src="assets/img/Rabiu-Musa-Kwankwaso.png" alt="" srcset="" />
+          <div class="candidate__label--box">
+            <label for="name" class="candidate__name"
+              >Rabiu Musa Kwankwaso</label
+            >
+            <p class="candidate__position">ANPP Presidential candidate</p>
+          </div>
+        </div>
+       
+    </section>
+
+   
+   <button type="submit" class="btn__style" id="votes">Submit Vote</button>
+      </form>
+    <div class="empty__space_10"></div>
+
+   <!-- this display the footer -->
+    <section><%- include('footer'); %></section>
+
+    <!-- <script src="app.js"></script> 
+  </body>
+</html>

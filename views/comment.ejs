@@ -1,0 +1,40 @@
+<%- include('header'); -%>
+
+<section class="comment__container">
+  <div class="posted__comment">
+    <% comments.forEach(function(comment) {%>
+    <h2><%=comment.titleName%></h2>
+    <p><%= comment.commentContent%></p>
+    <% });%>
+  </div>
+  <div class="comment hide">
+    <div class="form__header">
+      <h3>Leave a comment</h3>
+    </div>
+    <div class="form__content">
+      <form action="/comment" method="post">
+        <input
+          type="text"
+          name="titlename"
+          placeholder="Name"
+          autocomplete="off"
+        />
+
+        <textarea
+          name="comment"
+          id=""
+          cols="30"
+          rows="10"
+          placeholder="Leave a comment"
+        ></textarea>
+        <button type="submit" class="btn__style">Send</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="comment__btn add">
+    <i class="fa-solid fa-plus"></i>
+  </div>
+</section>
+<!-- this display the footer -->
+<section><%- include('footer'); -%></section>

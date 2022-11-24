@@ -1,0 +1,23 @@
+<div class="candidate__container">
+   <% for (let i = 0; i< candidateDetails.length; i++){%>
+  <div class="candidate__list">
+       <img src="<%= candidateDetails[i].image%>" class="cand_image" alt="" />
+    <div class="candidate__label--box">
+      <h3 class="candidate__name"><%= candidateDetails[i].fullName%></h3>
+      <p class="candidate__position"><%= candidateDetails[i].position%></p>
+    </div>
+  </div>
+
+  <div class="number__of__voting">
+    <div class="voting__yes">
+      <p class="voting__number"><%= candidateDetails[i].noOfVote.length %><span> Votes</span></p>
+    </div>
+  
+  </div>
+   <% }%>
+   
+
+
+</div>
+</div>
+<div class="empty__space_10"></div>

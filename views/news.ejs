@@ -1,0 +1,59 @@
+<!-- header -->
+<%- include('header'); -%>
+<div class="news__container">
+  <!-- posted content of news -->
+  <%newsContent.map(function(newsLists){%>
+  <a href="<%= newsLists.newsUrl%>">
+    <div class="posted__news__container">
+      <div class="posted_news__image">
+        <img src="<%= newsLists.newsImage %>" alt="" />
+      </div>
+      <h3 class="posted__news__title"><%= newsLists.newsTitle%></h3>
+      <p class="posted__news__content"><%= newsLists.newsCont%></p>
+    </div>
+  </a>
+  <!-- news form -->
+  <% });%>
+
+  <!-- <a href="">
+    <div class="posted__news__container">
+      <div class="posted_news__image">
+        <img src="assets/img/slide8.jpg" alt="" />
+      </div>
+      <h3 class="posted__news__title">Crises in Borno</h3>
+      <p class="posted__news__content">
+        Browsers will release object URLs automatically when the document is
+        unloaded; however, for optimal performance and memory usage, if there
+        are safe times when you can explicitly unload them, you should do so.
+      </p>
+    </div>
+  </a> -->
+  <!-- news form -->
+
+  <div class="news__box hide">
+    <div class="form__header">
+      <h3>News form</h3>
+    </div>
+    <div class="form__content">
+      <form action="/news" method="post" enctype="multipart/form-data">
+        <input type="text" name="newstitle" placeholder="News Title" />
+        <input type="url" name="newsurl" placeholder="News Source" />
+        <textarea
+          name="newscontent"
+          id=""
+          cols="30"
+          rows="10"
+          placeholder="News content"
+        ></textarea>
+        <input type="file" name="newsimage" accept=".png, .jpeg, .jpg" />
+        <button type="submit" class="btn__style">Send</button>
+      </form>
+    </div>
+  </div>
+  <div class="news__btn add">
+    <i class="fa-solid fa-plus"></i>
+  </div>
+</div>
+
+<!-- this display the footer -->
+<section><%- include('footer'); -%></section>
