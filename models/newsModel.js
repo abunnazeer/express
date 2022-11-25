@@ -14,6 +14,7 @@ const newsSchema = mongoose.Schema({
     required: [true, 'please add your news content'],
   },
   photo: {
+    // data: Buffer,
     type: String,
   },
 });

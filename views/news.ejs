@@ -3,13 +3,13 @@
 <div class="news__container">
   <!-- posted content of news -->
   <%newsContent.map(function(newsLists){%>
-  <a href="<%= newsLists.newsUrl%>">
+  <a href="<%= newsLists.source%>">
     <div class="posted__news__container">
       <div class="posted_news__image">
-        <img src="<%= newsLists.newsImage %>" alt="" />
+        <img src="/assets/uploads/<%= newsLists.photo %>" alt="" />
       </div>
-      <h3 class="posted__news__title"><%= newsLists.newsTitle%></h3>
-      <p class="posted__news__content"><%= newsLists.newsCont%></p>
+      <h3 class="posted__news__title"><%= newsLists.name%></h3>
+      <p class="posted__news__content"><%= newsLists.content%></p>
     </div>
   </a>
   <!-- news form -->

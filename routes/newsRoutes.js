@@ -7,5 +7,5 @@ const newsController = require('./../controllers/newsController');
 router
   .route('/')
   .get(newsController.getAllNews)
-  .post(newsController.uploadNewsPhoto, newsController.createNews);
+  .post(newsController.createNews);
 module.exports = router;

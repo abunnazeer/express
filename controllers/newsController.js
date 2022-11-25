@@ -1,50 +1,44 @@
 const News = require('./../models/newsModel');
 const multer = require('multer');
 /// Image upload functinalities
-const storage = multer.diskStorage({
-  destination: (reg, res) => {
-    cb(null, 'public/assets/uploads');
-  },
+const Storage = multer.diskStorage({
+  destination: 'public/assets/uploads',
   filename: (reg, file, cb) => {
-    const ext = file.mimetype.split('/')[1];
-    cb(null, `${Date.now()}.${ext}`);
+    cb(null, Date.now() + file.originalname);
   },
 });
-const multiFilter = (reg, file, cb) => {
-  if (file.mimetype.startsWith('image')) {
-    cb(null, false);
-  } else {
-    cb(new Error('image not found'), false);
-  }
-};
 
 const upload = multer({
-  storage: storage,
-  fileFilter: multiFilter,
-});
+  storage: Storage,
+}).single('newsimage');
 
-exports.uploadNewsPhoto = upload.single('newsimage');
 exports.getAllNews = async (reg, res) => {
   const newsLists = await News.find();
+  console.log(newsLists.length);
   res.status(200).render('news', { newsContent: newsLists });
 };
 
 exports.createNews = (reg, res) => {
-  reg.file;
-  const news = new News({
-    name: reg.body.newstitle,
-    source: reg.body.newsurl,
-    content: reg.body.newscontent,
-    photo: reg.body.newsimage,
+  upload(reg, res, err => {
+    if (err) {
+      console.log(err);
+    } else {
+      const news = new News({
+        name: reg.body.newstitle,
+        source: reg.body.newsurl,
+        content: reg.body.newscontent,
+        photo: reg.file.filename,
+      });
+      news
+        .save()
+        .then(doc => {
+          console.log(doc);
+        })
+        .catch(err => {
+          console.log('Error', err);
+        });
+    }
   });
-  news
-    .save()
-    .then(doc => {
-      console.log(doc);
-    })
-    .catch(err => {
-      console.log('Error', err);
-    });
 
   res.redirect('/news');
 };
