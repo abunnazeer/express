@@ -14,7 +14,7 @@ const upload = multer({
 
 exports.getAllNews = async (reg, res) => {
   const newsLists = await News.find();
-  console.log(newsLists.length);
+
   res.status(200).render('news', { newsContent: newsLists });
 };
 

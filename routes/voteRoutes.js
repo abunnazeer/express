@@ -24,7 +24,7 @@ const candidateDetail = [
 ];
 const createVote = (reg, res) => {
   res.render('./index');
-  console.log('we cannot redirec');
+  console.log('we cannot redirect');
 };
 
 const getAllVote = (reg, res) => {
