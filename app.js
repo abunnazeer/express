@@ -47,27 +47,27 @@ const slideDetails = [
   },
 ];
 
-// candidate details
-const candidateDetail = [
-  {
-    image: 'assets/img/tinubu.png',
-    fullName: 'Ahmad Bola Tinubu',
-    position: 'APC Presidential Candidate',
-    noOfVote: [],
-  },
-  {
-    image: 'assets/img/Atiku.png',
-    fullName: 'Atiku Abubakar',
-    position: 'PDP Presidential Candidate',
-    noOfVote: [],
-  },
-  {
-    image: 'assets/img/Rabiu-Musa-Kwankwaso.png',
-    fullName: 'Rabiu Musa Kwankoso',
-    position: 'ANPP Presidential Candidate',
-    noOfVote: [],
-  },
-];
+// // candidate details
+// const candidateDetail = [
+//   {
+//     image: 'assets/img/tinubu.png',
+//     fullName: 'Ahmad Bola Tinubu',
+//     position: 'APC Presidential Candidate',
+//     noOfVote: [],
+//   },
+//   {
+//     image: 'assets/img/Atiku.png',
+//     fullName: 'Atiku Abubakar',
+//     position: 'PDP Presidential Candidate',
+//     noOfVote: [],
+//   },
+//   {
+//     image: 'assets/img/Rabiu-Musa-Kwankwaso.png',
+//     fullName: 'Rabiu Musa Kwankoso',
+//     position: 'ANPP Presidential Candidate',
+//     noOfVote: [],
+//   },
+// ];
 
 app.set('view engine', 'ejs');
 app.use(express.static(path.join(__dirname, 'public')));
