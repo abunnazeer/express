@@ -9,77 +9,13 @@ const path = require('path');
 const commentRouter = require('./routes/commentRoutes');
 const voteRouter = require('./routes/voteRoutes');
 const newsRouter = require('./routes/newsRoutes');
+const candidateRouter = require('./routes/candidateRoutes');
 
 //dotenv.config({ path: './config.env' });
 
 const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// const DB = process.env.DATABASE.replace(
-//   '<PASSWORD>',
-//   process.env.DATABASE_PASSWORD
-// );
-// mongoose
-//   .connect(DB, {
-//     useNewUrlParser: true,
-//   })
-//   .then(con => {
-//     // console.log(con.connections);
-//     console.log('DB Connection Successful!');
-//   });
-
-// const votingSchema = new mongoose.Schema({
-//   image: {
-//     type: String,
-//     required: [true, 'you must provide a image'],
-//   },
-//   name: {
-//     type: String,
-//     required: [true, 'you must provide a name'],
-//     unique: true,
-//   },
-//   position: {
-//     type: String,
-//     required: [true, 'you must provide a position'],
-//   },
-//   noOfVote: {
-//     type: [],
-//     default: 0,
-//   },
-// });
-
-// const commentSchema = new mongoose.Schema({
-//   titleName: {
-//     type: String,
-//     required: [true, 'you must provide a name'],
-//     unique: true,
-//   },
-//   commentContent: {
-//     type: String,
-//     required: [true, 'you must provide a position'],
-//     default: 150,
-//   },
-// });
-
-// const Comments = mongoose.model('Comment', commentSchema);
-//const Voting = mongoose.model('Voting', votingSchema);
-
-// const votingDetails = new Voting({
-//   image: 'assets/img/tinubu.png',
-//   name: 'Ahmad Bola Tinubu',
-//   position: 'APC Presidential Candidate',
-//   noOfVote: [1, 2, 3],
-// });
-
-// votingDetails
-//   .save()
-//   .then(doc => {
-//     console.log(doc);
-//   })
-//   .catch(err => {
-//     console.log('Error', err);
-//   });
-//slide images
 const slideDetails = [
   {
     imgPth: 'assets/img/slide.jpg',
@@ -133,16 +69,6 @@ const candidateDetail = [
   },
 ];
 
-/////////news array//////////
-
-const newsLists = [
-  {
-    newsImage: 'assets/img/tinubu.png',
-    newsTitle: 'Ahmad Bola Tinubu',
-    newsCont: 'APC Presidential Candidate',
-    newsUrl: 'APC Presidential Candidate',
-  },
-];
 app.set('view engine', 'ejs');
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -162,9 +88,8 @@ app.use('/comment', commentRouter);
 app.use('/vote', voteRouter);
 //////////news///////////////
 app.use('/news', newsRouter);
-// app.get('/vote', (reg, res) => {
-//   res.render('vote');
-// });
+//////////news///////////////
+app.use('/addCandidate', candidateRouter);
 
 // app.post('/', (reg, res) => {
 //   let v = reg.body.president;
@@ -181,32 +106,6 @@ app.use('/news', newsRouter);
 // app.get('/news', (reg, res) => {
 //   // res.render('news');
 //   res.render('news', { newsContent: newsLists });
-// });
-
-// app.post('/news', (reg, res) => {
-//   const news = {
-//     newsTitle: reg.body.newstitle,
-//     newsCont: reg.body.newscontent,
-//     newsImage: reg.file.originalname,
-//     newsUrl: reg.body.newsurl,
-//   };
-
-//   newsLists.push(news);
-//   console.log(news);
-//   res.redirect('/news');
-// });
-
-// app.post('/news', upload.single('newsimage'), (reg, res) => {
-//   const news = {
-//     newsTitle: reg.body.newstitle,
-//     newsCont: reg.body.newscontent,
-//     newsImage: reg.file.originalname,
-//     newsUrl: reg.body.newsurl,
-//   };
-
-//   newsLists.push(news);
-//   console.log(news);
-//   res.redirect('/news');
 // });
 
 module.exports = app;

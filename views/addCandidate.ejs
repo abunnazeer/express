@@ -1,0 +1,20 @@
+<!-- header -->
+<%- include('header'); -%>
+<div class="news__container">
+  <div class="news__box">
+    <div class="form__header">
+      <h3>Registration</h3>
+    </div>
+    <div class="form__content">
+      <form action="/news" method="post" enctype="multipart/form-data">
+        <input type="text" name="name" placeholder="Name" />
+        <input type="text" name="position" placeholder="Position" />
+        <br />
+        <input type="file" name="photo" accept=".png, .jpeg, .jpg" />
+        <button type="submit" class="btn__style">Send</button>
+      </form>
+    </div>
+  </div>
+</div>
+<!-- this display the footer -->
+<section><%- include('footer'); -%></section>

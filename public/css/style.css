@@ -349,7 +349,7 @@ textarea {
   font-weight: normal;
   margin-bottom: 0.5rem;
   text-transform: uppercase;
-  font-style: italic;
+  /* font-style: italic; */
 }
 
 .posted__comment p {
@@ -361,9 +361,9 @@ textarea {
   border-bottom: 0.7rem var(--white-color) solid;
 }
 .comment__btn {
-  position: absolute;
-  top: 33rem;
-  right: 3rem;
+  position: sticky;
+  left: 80vw;
+  bottom: 15vh;
 }
 
 .comment {
@@ -388,8 +388,8 @@ textarea {
 /* posted news styles */
 .posted__news__container {
   border: 1px solid #c2c2c2;
-  height: 300px;
-  margin: 0 20px;
+  height: 100%;
+  margin: 20px;
   cursor: pointer;
 }
 .posted_news__image {
@@ -417,7 +417,8 @@ textarea {
 }
 /* add news floating btn */
 .news__btn {
-  position: absolute;
-  top: 33rem;
-  right: 3rem;
+  position: sticky;
+
+  left: 80vw;
+  bottom: 15vh;
 }
