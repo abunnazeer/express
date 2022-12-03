@@ -19,48 +19,35 @@
     </header>
     <!-- Presidential -->
     <section class="main__container">
-      <form action="/" method="post">
-    
-        <div class="voting__label">Choose your President</div>
+      <form action="/vote" method="post">
+  
+
+   
+       <div class="voting__label">Choose your President</div>
+        <% cand.map((item, i)=>{%> 
         <div class="vote__container candidate__list">
           <input
             type="radio"
             id="cand__id"
-            name="president"
-            value="1"
+            name="President"
+            value="<%=item.name%>"
             checked
           />
-          <img src="assets/img/tinubu.png" alt="" srcset="" />
+          <img src="/assets/uploads/parties/<%=item.photo%>" alt="" srcset="" />
           <div class="candidate__label--box">
             <label for="name" class="candidate__name"
-              >AHMAD BOLA TINUBU <span class="countingvote"></span></label
+              ><%= item.name%></label
             >
-            <p class="candidate__position">APC Presidential candidate</p>
+            <p class="candidate__position"><%=item.position%></p>
           </div>
         </div>
-        <div class="vote__container candidate__list">
-          <input type="radio" id="cand__id" name="president" value="2" />
-          <img src="assets/img/Atiku.png" alt="" srcset="" />
-          <div class="candidate__label--box">
-            <label for="name" class="candidate__name">ATIKU ABUBAKAR</label>
-            <p class="candidate__position">PDP Presidential candidate</p>
-          </div>
-        </div>
-        <div class="vote__container candidate__list">
-          <input type="radio" id="cand__id" name="president" value="3" />
-          <img src="assets/img/Rabiu-Musa-Kwankwaso.png" alt="" srcset="" />
-          <div class="candidate__label--box">
-            <label for="name" class="candidate__name"
-              >Rabiu Musa Kwankwaso</label
-            >
-            <p class="candidate__position">ANPP Presidential candidate</p>
-          </div>
-        </div>
-       
+
+          <%})%>
     </section>
 
    
-   <button type="submit" class="btn__style" id="votes">Submit Vote</button>
+   <button type="submit" class="btn__style" id="votes">Vote Now</button>
+
       </form>
     <div class="empty__space_10"></div>
 

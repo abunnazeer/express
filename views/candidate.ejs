@@ -1,16 +1,16 @@
 <div class="candidate__container">
    <% for (let i = 0; i< candidateDetails.length; i++){%>
   <div class="candidate__list">
-       <img src="<%= candidateDetails[i].image%>" class="cand_image" alt="" />
+       <img src="/assets/uploads/parties/<%= candidateDetails[i].photo%>" class="cand_image" alt="" />
     <div class="candidate__label--box">
-      <h3 class="candidate__name"><%= candidateDetails[i].fullName%></h3>
+      <h3 class="candidate__name"><%= candidateDetails[i].name%></h3>
       <p class="candidate__position"><%= candidateDetails[i].position%></p>
     </div>
   </div>
 
   <div class="number__of__voting">
     <div class="voting__yes">
-      <p class="voting__number"><%= candidateDetails[i].noOfVote.length %><span> Votes</span></p>
+      <p class="voting__number"><%= candidateDetails[i].vote.length-1 %><span> Votes</span></p>
     </div>
   
   </div>

@@ -11,6 +11,8 @@ const voteRouter = require('./routes/voteRoutes');
 const newsRouter = require('./routes/newsRoutes');
 const candidateRouter = require('./routes/candidateRoutes');
 
+const Candidates = require('./models/candidateModel');
+
 //dotenv.config({ path: './config.env' });
 
 const app = express();
@@ -47,35 +49,36 @@ const slideDetails = [
   },
 ];
 
-// // candidate details
-// const candidateDetail = [
-//   {
-//     image: 'assets/img/tinubu.png',
-//     fullName: 'Ahmad Bola Tinubu',
-//     position: 'APC Presidential Candidate',
-//     noOfVote: [],
-//   },
-//   {
-//     image: 'assets/img/Atiku.png',
-//     fullName: 'Atiku Abubakar',
-//     position: 'PDP Presidential Candidate',
-//     noOfVote: [],
-//   },
-//   {
-//     image: 'assets/img/Rabiu-Musa-Kwankwaso.png',
-//     fullName: 'Rabiu Musa Kwankoso',
-//     position: 'ANPP Presidential Candidate',
-//     noOfVote: [],
-//   },
-// ];
+// candidate details
+const candidateDetail = [
+  {
+    image: 'assets/img/tinubu.png',
+    fullName: 'Ahmad Bola Tinubu',
+    position: 'APC Presidential Candidate',
+    noOfVote: [],
+  },
+  {
+    image: 'assets/img/Atiku.png',
+    fullName: 'Atiku Abubakar',
+    position: 'PDP Presidential Candidate',
+    noOfVote: [],
+  },
+  {
+    image: 'assets/img/Rabiu-Musa-Kwankwaso.png',
+    fullName: 'Rabiu Musa Kwankoso',
+    position: 'ANPP Presidential Candidate',
+    noOfVote: [],
+  },
+];
 
 app.set('view engine', 'ejs');
 app.use(express.static(path.join(__dirname, 'public')));
 
 //////////home page///////////
-app.get('/', (reg, res) => {
+app.get('/', async (reg, res) => {
+  const candidate = await Candidates.find();
   res.render('index', {
-    candidateDetails: candidateDetail,
+    candidateDetails: candidate,
     slides: slideDetails,
   });
 });
